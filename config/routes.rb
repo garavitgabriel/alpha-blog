@@ -9,7 +9,7 @@ root to:'pages#home'
 get'about', to:'pages#about'
 
 
-
+resources :articles
 
 
   # You can have the root of your site routed with "root"
