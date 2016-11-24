@@ -30,7 +30,7 @@ class ArticlesController < ApplicationController
 
 
 def create
-	debugger
+	
 	@article = Article.new(article_params)
 	@article.user = current_user
 
@@ -98,6 +98,14 @@ def require_same_user
 		redirect_to root_path 
 	end
 end
+
+def requiere_admin 
+	if logged_in? and !current_user.admin? 
+		flash[:danger] = "Only admin users can perform this action"
+		redirect_to root_path
+	end
+end
+
 
 
 end
